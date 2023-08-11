@@ -1,0 +1,48 @@
+<%= form_with model: employee do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% employee.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+    <div>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+    <% employee.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+    <div>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %>
+    <% employee.errors.full_messages_for(:username).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+    <div>
+    <%= form.label :password %><br>
+    <%= form.text_field :password %>
+    <% employee.errors.full_messages_for(:password).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+    <div>
+    <%= form.label :joining_date %><br>
+    <%= form.date_select :joining_date %>
+    <% employee.errors.full_messages_for(:joining_date).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+    <div>
+    <%= form.label :salary %><br>
+    <%= form.text_field :salary %>
+    <% employee.errors.full_messages_for(:salary).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+   <div>
+    <%= form.submit %>
+  </div>
+<% end %>

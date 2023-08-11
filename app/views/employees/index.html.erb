@@ -1,0 +1,15 @@
+<marquee><h1 style="color: red;">ALL Employee Detail</h1></marquee>
+<ul>
+  <li><%= link_to "Create", new_employee_path %></li>
+</ul>
+  <% @employee.each do |employee| %>
+   <b>Employee ID :</b> <%= employee.id %><br>
+  <b>Employee Name :</b> <%= employee.name %><br>
+  <b>Username :</b> <%= employee.username %><br>
+  <b>Salary :</b> <%= employee.salary %><br>
+   <b>Joinng Date :</b> <%= employee.joining_date %><br>
+
+     <hr>
+
+  <% end %>
+      

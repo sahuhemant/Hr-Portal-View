@@ -1,0 +1,12 @@
+<marquee><h1 style="color: red;">Events</h1></marquee>
+<ul>
+  <li><%= link_to "Create", new_event_path(@event) %></li>
+</ul>
+  <% @event.each do |event| %>
+   <b>Number :</b> <%= event.id %><br>
+  <b>Event Name :</b> <%= event.name %><br>
+   <b>Date :</b> <%= event.date %><br>
+     <hr>
+
+  <% end %>
+      

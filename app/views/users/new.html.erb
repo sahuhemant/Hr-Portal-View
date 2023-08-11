@@ -1,0 +1,38 @@
+<h1>Apply Leave</h1>
+
+<%= form_with model: @leave, method: :post do |form| %>
+  <div>
+    <b><%= form.label :Start_Date %></b><br>
+    <%= form.date_select :date %>
+    <% @leave.errors.full_messages_for(:date).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <b><%= form.label :end_Date %></b><br>
+    <%= form.date_select :date %>
+    <% @leave.errors.full_messages_for(:date).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <b><%= form.label :User_id %></b><br>
+    <%= form.text_field:user_id %>
+    <% @leave.errors.full_messages_for(:user_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :reason %><br>
+    <%= form.text_field :reason %><br>
+    <% @leave.errors.full_messages_for(:reason).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

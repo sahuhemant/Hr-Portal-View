@@ -1,0 +1,10 @@
+<marquee><h1 style="color: red;">leave_request All</h1></marquee>
+  <% @leave_request.each do |leave_request| %>
+   <b>Id :</b> <%= leave_request.id %><br>
+   <b>Name :</b> <%= leave_request.user.name %><br>
+  <b> start_date:</b> <%= leave_request.start_date %><br>
+   <b>end_date :</b> <%= leave_request.end_date %><br>
+     <hr>
+
+  <% end %>
+      
