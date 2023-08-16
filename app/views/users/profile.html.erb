@@ -1,0 +1,8 @@
+<h1>User#Show</h1>
+Name :- <%= @current_user.name %><br>
+Username: <%= @current_user.username %><br>
+email :- <%= @current_user.email %><br>
+password :- <%= @current_user.password %><br>
+Date of Joining :- <%= @current_user.joining_date %><br>
+Salary :- <%= @current_user.salary %><br>
+<%= button_to "Home", emp_path, method: :get %>

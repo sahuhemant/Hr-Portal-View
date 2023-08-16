@@ -1,5 +1,13 @@
+<style type="text/css">
+body {
+  background-color: khaki;
+}
+  .abc {
+    margin-left: 350px;
+  }
+</style>
 <%= form_with model: event do |form| %>
-  <div>
+  <div class="abc">
     <%= form.label :name %><br>
     <%= form.text_field :name %>
     <% event.errors.full_messages_for(:name).each do |message| %>
@@ -7,7 +15,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="abc">
     <%= form.label :date %><br>
     <%= form.date_select :date %><br>
     <% event.errors.full_messages_for(:date).each do |message| %>
@@ -15,7 +23,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="abc">
     <%= form.submit %>
   </div>
 <% end %>

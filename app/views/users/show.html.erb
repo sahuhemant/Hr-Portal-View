@@ -1,6 +1,7 @@
   
-    <b>Start Date:</b> <%= @leave.start_date %><br>
-   <b>End Date:</b> <%= @leave.end_date %><hr>
-   <b>Reason:</b> <%= @leave.reason %><hr>
-   <b>Employee Id:</b> <%= @leave.user_id %><hr>
+   <b>Start Date:</b> <%= @leave_request.start_date %><br>
+   <b>End Date:</b> <%= @leave_request.end_date %><hr>
+   <b>Reason:</b> <%= @leave_request.reason %><hr>
+   <b>Employee Id:</b> <%= @leave_request.user_id %><hr>
+   <%= button_to "Home", emp_path, method: :get %>
   

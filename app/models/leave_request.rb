@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 class LeaveRequest < ApplicationRecord
-
-	  belongs_to :user
-  validates  :reason, :start_date, :end_date, presence: true
+  belongs_to :user
+  validates :reason, :start_date, :end_date, presence: true
   validate :validate_dates
-
 
   private
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,50 +12,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_11_081146) do
-  create_table "events", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.date "date"
+ActiveRecord::Schema[7.0].define(version: 20_230_811_081_146) do
+  create_table 'events', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'name'
+    t.date 'date'
   end
 
-  create_table "holidays", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.date "date"
+  create_table 'holidays', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'name'
+    t.date 'date'
   end
 
-  create_table "leave_requests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.date "start_date"
-    t.date "end_date"
-    t.string "reason"
-    t.integer "user_id"
-    t.string "status", default: "pending"
-    t.index ["user_id"], name: "index_leave_requests_on_user_id"
+  create_table 'leave_requests', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.date 'start_date'
+    t.date 'end_date'
+    t.string 'reason'
+    t.integer 'user_id'
+    t.string 'status', default: 'pending'
+    t.index ['user_id'], name: 'index_leave_requests_on_user_id'
   end
 
-  create_table "loginers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "username"
-    t.string "password"
+  create_table 'loginers', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'username'
+    t.string 'password'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "username"
-    t.string "email"
-    t.string "password"
-    t.string "type"
-    t.date "joining_date"
-    t.float "salary"
+  create_table 'users', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'name'
+    t.string 'username'
+    t.string 'email'
+    t.string 'password'
+    t.string 'type'
+    t.date 'joining_date'
+    t.float 'salary'
   end
 
-  add_foreign_key "leave_requests", "users"
+  add_foreign_key 'leave_requests', 'users'
 end

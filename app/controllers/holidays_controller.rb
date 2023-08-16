@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 class HolidaysController < ApplicationController
+  before_action :authenticate_user
+
   def index
     @holiday = Holiday.all
   end
@@ -35,8 +39,16 @@ class HolidaysController < ApplicationController
     end
   end
 
+  def destroy
+    @holiday = Holiday.find(params[:id])
+    @holiday.destroy
+
+    redirect_to holidays_path, status: :see_other
+  end
+
   private
-    def holiday_params
-      params.require(:holiday).permit(:name, :date)
-    end
+
+  def holiday_params
+    params.require(:holiday).permit(:name, :date)
+  end
 end

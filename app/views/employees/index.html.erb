@@ -1,15 +1,32 @@
+<style>
+  body {
+    background-color: navajowhite;
+  }
+</style>
+
 <marquee><h1 style="color: red;">ALL Employee Detail</h1></marquee>
 <ul>
   <li><%= link_to "Create", new_employee_path %></li>
 </ul>
+
+<hr>
   <% @employee.each do |employee| %>
    <b>Employee ID :</b> <%= employee.id %><br>
   <b>Employee Name :</b> <%= employee.name %><br>
   <b>Username :</b> <%= employee.username %><br>
   <b>Salary :</b> <%= employee.salary %><br>
    <b>Joinng Date :</b> <%= employee.joining_date %><br>
+ <ul>
+  <li><%= link_to "Edit", edit_employee_path(employee) %></li>
+      <li><%= link_to "Destroy", employee_path(employee), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
 
      <hr>
 
   <% end %>
+  <%= button_to "Home", hr_path, method: :get %>
+
       

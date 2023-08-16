@@ -1,5 +1,13 @@
+<style type="text/css">
+body {
+  background-color: khaki;
+}
+  .abc {
+    margin-left: 350px;
+  }
+</style>
 <%= form_with model: leave_request do |form| %>
-  <div>
+  <div class="abc">
     <%= form.label :start_date %><br>
     <%= form.date_select :start_date %>
     <% leave_request.errors.full_messages_for(:start_date).each do |message| %>
@@ -7,29 +15,29 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="abc">
     <%= form.label :end_date %><br>
     <%= form.date_select :end_date %><br>
     <% leave_request.errors.full_messages_for(:end_date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-    <div>
+    <div class="abc">
     <%= form.label :reason %><br>
     <%= form.text_field :reason %><br>
     <% leave_request.errors.full_messages_for(:reason).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-    <div>
+    <div class="abc">
     <%= form.label :status %><br>
-    <%= form.text_field:status %><br>
+   <%= form.select :status, ["pending", "approved"] %>
     <% leave_request.errors.full_messages_for(:status).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
+  <div class="abc">
     <%= form.submit %>
   </div>
 <% end %>

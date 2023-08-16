@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
+  before_action :authenticate_user
 
   def index
     @event = Event.all
@@ -36,8 +39,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+
+    redirect_to events_path, status: :see_other
+  end
+
   private
-    def event_params
-      params.require(:event).permit(:name, :date)
-    end
+
+  def event_params
+    params.require(:event).permit(:name, :date)
+  end
 end

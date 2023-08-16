@@ -1,10 +1,82 @@
-<div style = "color:red; text-align: center;"> <%= flash[:notice] %>
-<h1>HR- Portal</h1>
-<%= form_with url: '/login', method: :post do |form| %>
-  <%= form.label :username %>
-  <%= form.text_field :username %> <br><br>
-  <%= form.label :password %>
-  <%= form.text_field :password %> <br><br>
-  <%= form.submit 'Login' %>
-<% end %>
- </div>
+<!doctype html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #3498db, #e74c3c);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .login-container h1 {
+      color: #e74c3c;
+    }
+
+    .login-form {
+      margin-top: 20px;
+    }
+
+    .login-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-form input[type="submit"] {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .login-form input[type="submit"]:hover {
+      background: #c0392b;
+    }
+
+    .flash-notice {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="flash-notice"><%= flash[:notice] %></div>
+    <h1>HR- Portal</h1>
+    <form class="login-form" action="/login" method="post">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</body>
+</html>
+

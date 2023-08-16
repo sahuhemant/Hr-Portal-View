@@ -1,48 +1,60 @@
+<style type="text/css">
+body {
+  background-color: khaki;
+}
+  .abc {
+    margin-left: 350px;
+  }
+  .cc{
+    margin-left: 350px;
+    color: red;
+  }
+</style>
 <%= form_with model: employee do |form| %>
-  <div>
+  <div class="abc">
     <%= form.label :name %><br>
     <%= form.text_field :name %>
     <% employee.errors.full_messages_for(:name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-    <div>
+    <div class="abc">
     <%= form.label :email %><br>
     <%= form.text_field :email %>
     <% employee.errors.full_messages_for(:email).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-    <div>
+    <div class="abc">
     <%= form.label :username %><br>
     <%= form.text_field :username %>
     <% employee.errors.full_messages_for(:username).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-    <div>
+    <div class="abc">
     <%= form.label :password %><br>
     <%= form.text_field :password %>
     <% employee.errors.full_messages_for(:password).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-    <div>
+    <div class="abc">
     <%= form.label :joining_date %><br>
     <%= form.date_select :joining_date %>
     <% employee.errors.full_messages_for(:joining_date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
-    <div>
+    <div class="abc">
     <%= form.label :salary %><br>
     <%= form.text_field :salary %>
     <% employee.errors.full_messages_for(:salary).each do |message| %>
       <div><%= message %></div>
     <% end %>
-  </div>
+  </div><br>
 
-   <div>
+   <div class="cc">
     <%= form.submit %>
   </div>
 <% end %>

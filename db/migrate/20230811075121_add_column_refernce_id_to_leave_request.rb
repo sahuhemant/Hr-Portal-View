@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddColumnRefernceIdToLeaveRequest < ActiveRecord::Migration[7.0]
   def change
     add_reference :leave_requests, :user, foreign_key: true

@@ -1,12 +1,36 @@
+<style>
+body {
+  background-color: lightblue;
+}
+
+</style>
+<%  if @current_user.type == 'Hr' %> 
 <marquee><h1 style="color: red;">Holidays</h1></marquee>
 <ul>
   <li><%= link_to "Create", new_holiday_path(@holiday) %></li>
 </ul>
   <% @holiday.each do |holiday| %>
-   <b>Number :</b> <%= holiday.id %><br>
-  <b>Holiday Name :</b> <%= holiday.name %><br>
+  <b>Number :</b> <%= holiday.id %><br>
+  <b>holiday Name :</b> <%= holiday.name %><br>
    <b>Date :</b> <%= holiday.date %><br>
-     <hr>
+  <ul>
+  <li><%= link_to "Edit", edit_holiday_path(holiday) %></li>
+  <li><%= link_to "Destroy", holiday_path(holiday), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
 
+</ul>
+     <hr>
+  
   <% end %>
       
+      <% else %>
+      <% @holiday.each do |holiday| %>
+   <b>Number :</b> <%= holiday.id %><br>
+  <b>holiday Name :</b> <%= holiday.name %><br>
+   <b>Date :</b> <%= holiday.date %><br><hr>
+      <% end %>
+
+      <% end %>
+

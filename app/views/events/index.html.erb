@@ -1,3 +1,9 @@
+<style>
+body {
+  background-color: darkgray;
+}
+</style>
+<%  if @current_user.type == 'Hr' %> 
 <marquee><h1 style="color: red;">Events</h1></marquee>
 <ul>
   <li><%= link_to "Create", new_event_path(@event) %></li>
@@ -6,7 +12,25 @@
    <b>Number :</b> <%= event.id %><br>
   <b>Event Name :</b> <%= event.name %><br>
    <b>Date :</b> <%= event.date %><br>
-     <hr>
+      <ul>
+  <li><%= link_to "Edit", edit_event_path(event) %></li>
+    <li><%= link_to "Destroy", event_path(event), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
 
+</ul>
+ 
+
+     <hr>
+  
   <% end %>
       
+      <% else %>
+      <% @event.each do |event| %>
+   <b>Number :</b> <%= event.id %><br>
+  <b>Event Name :</b> <%= event.name %><br>
+   <b>Date :</b> <%= event.date %><br><hr>
+       <% end %>
+
+      <% end %>

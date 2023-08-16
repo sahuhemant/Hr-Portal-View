@@ -1,4 +1,52 @@
-<h1>User#HR</h1>
-<%= button_to 'All employees', employees_path, method: :get %>
-<%= button_to 'All employees', employees_path, method: :get %>
-<%= button_to 'logout', logout_path, method: :post %>
+<style>
+	body {
+		background-color: lightblue;
+	}
+	.navbar {
+  background-color: #3498db;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-button {
+  background-color: #2ecc71;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar-button:hover {
+  background-color: #27ae60;
+}
+
+
+</style>
+
+
+<nav class="navbar">
+  <h1 class="navbar-title">HR</h1>
+  <div class="navbar-buttons">
+    <%= button_to 'Employees', employees_path, method: :get, class: 'navbar-button' %>
+    <%= button_to 'Holiday', holidays_path, method: :get, class: 'navbar-button' %>
+    <%= button_to 'Events', events_path, method: :get, class: 'navbar-button' %>
+    <%= button_to 'Applied Leave', leave_requests_path, method: :get, class: 'navbar-button' %>
+    <%= button_to 'logout', logout_path, method: :post, class: 'navbar-button' %>
+  </div>
+</nav>
+

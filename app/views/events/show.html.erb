@@ -1,6 +1,14 @@
-  
+  <style type="text/css">
+    body
+    {
+        text-align: center;
+        background-color: lightgreen;
+        
+    }
+
+</style>
+<body>
     <b>Event Name:</b> <%= @event.name %><br>
    <b>Date:</b> <%= @event.date %><hr>
-   <ul>
-  <li><%= link_to "Edit", edit_event_path(@event) %></li>
-</ul>
+      <%= button_to "Home", events_path, method: :get %>
+</body>

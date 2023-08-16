@@ -1,0 +1,53 @@
+<style>
+   body {
+      background-color: lightblue;
+   }
+   .navbar {
+  background-color: #3498db;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-button {
+  background-color: #2ecc71;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar-button:hover {
+  background-color: #27ae60;
+}
+
+
+</style>
+
+<nav class="navbar">
+  <h1 class="navbar-title">Employee Login </h1>
+  <div class="navbar-buttons">
+  <%= button_to 'Profile', profile_path, method: :get, class: 'navbar-button'  %>
+   <%= button_to 'All Holiday', holidays_path, method: :get, class: 'navbar-button'  %>
+    <%= button_to 'All events', events_path, method: :get, class: 'navbar-button'  %>
+    <%= button_to 'Apply Leave', new_user_path, method: :get, class: 'navbar-button'  %>
+     <%= button_to 'Leave Status', leave_history_path, method: :get, class: 'navbar-button'  %>
+
+
+  <%= button_to 'logout', logout_path, method: :post, class: 'navbar-button'  %>    
+   </div>
+</nav>
