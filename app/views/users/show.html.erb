@@ -1,7 +1,14 @@
-  
+<style type="text/css">
+    body{
+        background-color: lightblue;
+    }
+</style>
+<body>  
    <b>Start Date:</b> <%= @leave_request.start_date %><br>
    <b>End Date:</b> <%= @leave_request.end_date %><hr>
    <b>Reason:</b> <%= @leave_request.reason %><hr>
+   <b>Leave type:</b> <%= @leave_request.leave_type %><hr>
+
    <b>Employee Id:</b> <%= @leave_request.user_id %><hr>
    <%= button_to "Home", emp_path, method: :get %>
-  
+  </body>

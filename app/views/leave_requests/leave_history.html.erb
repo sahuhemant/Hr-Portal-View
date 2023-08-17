@@ -1,8 +1,32 @@
-<marquee><h1 style="color: red;">Leave Status</h1></marquee>
-<% @leave_requests.each do |leave_request| %>
-<b> name:</b> <%= leave_request.user.name %><br>
-<b> start_date:</b> <%= leave_request.start_date %><br>
-<b>end_date :</b> <%= leave_request.end_date %><br>
-<b>Status :</b> <%= leave_request.status %><br>
-<hr>
-<% end %>
+<style type="text/css">
+	body{
+		background-color: lightcyan;
+	}
+</style>
+
+        
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col"> Start Date</th>
+    <th scope="col"> End Date</th>
+    <th scope="col">Leave Type</th>
+    <th scope="col">Status</th>
+
+  </tr>
+  </thead>
+  <% @leave_requests.each do |leave_request| %>
+
+    <tr>
+      <td><%= leave_request.start_date %></td>
+      <td><%= leave_request.end_date %></td>
+      <td><%= leave_request.leave_type %></td>
+      <td><%= leave_request.status %></td>
+    </tr>
+      <% end %>
+</table>
+<%= button_to "Home", emp_path, method: :get %>
+
+
+

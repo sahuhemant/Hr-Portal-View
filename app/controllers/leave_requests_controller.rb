@@ -45,7 +45,7 @@ class LeaveRequestsController < ApplicationController
   private
 
   def leave_params
-    params.require(:leave_request).permit(:start_date, :end_date, :reason).merge(user_id: @current_user.id)
+    params.require(:leave_request).permit(:start_date, :end_date, :reason, :leave_type).merge(user_id: @current_user.id)
   end
 
   def leave_params1

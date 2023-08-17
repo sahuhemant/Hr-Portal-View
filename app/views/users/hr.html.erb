@@ -22,7 +22,7 @@
 }
 
 .navbar-button {
-  background-color: #2ecc71;
+  background-color: indigo;
   color: #ffffff;
   border: none;
   padding: 8px 12px;
@@ -37,7 +37,8 @@
 
 
 </style>
-
+<section class="vh-100 bg-image"
+  style="background-image: url(<%= asset_path 'hr.jpg' %>); background-repeat: no-repeat; background-size: cover; background-position: center center">
 
 <nav class="navbar">
   <h1 class="navbar-title">HR</h1>
@@ -49,4 +50,5 @@
     <%= button_to 'logout', logout_path, method: :post, class: 'navbar-button' %>
   </div>
 </nav>
+</section>
 

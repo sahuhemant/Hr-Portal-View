@@ -1,8 +1,17 @@
-<h1>User#Show</h1>
-Name :- <%= @current_user.name %><br>
-Username: <%= @current_user.username %><br>
-email :- <%= @current_user.email %><br>
-password :- <%= @current_user.password %><br>
-Date of Joining :- <%= @current_user.joining_date %><br>
-Salary :- <%= @current_user.salary %><br>
-<%= button_to "Home", emp_path, method: :get %>
+<style type="text/css">
+	body {
+		text-align: center;
+		background-color: navajowhite;
+	}
+</style>
+<body>
+<h1>Profile</h1>
+&nbsp;<b>Name:</b>&nbsp;<%= @current_user.name %><br>
+<b>Username:</b>&nbsp; <%= @current_user.username %><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email:</b> <%= @current_user.email %><br>
+<b>password :- </b><%= @current_user.password %><br>
+<b>Date of Joining :-</b> <%= @current_user.joining_date %><br>
+<b>Salary :- </b><%= @current_user.salary %><br>
+<b><%= button_to "Home", emp_path, method: :get %>
+</body>
+

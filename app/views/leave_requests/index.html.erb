@@ -3,15 +3,31 @@ body {
   background-color: lightgreen;
 }
 </style>
-<marquee><h1 style="color: red;">leave_request All</h1></marquee>
-<% @leave_request.each do |leave_request| %>
-  <b>Id :</b> <%= leave_request.id %><br>
-  <b>Name :</b> <%= leave_request.user.name %><br>
-  <b> start_date:</b> <%= leave_request.start_date %><br>
-  <b>end_date :</b> <%= leave_request.end_date %><br>
-  <b>Status :</b> <%= leave_request.status %><br>
-  <li><%= link_to "approve", edit_leave_request_path(leave_request) %></li>
-  <hr>
 
-<% end %>
-  
+  <%= button_to "Home", hr_path, method: :get %>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Number</th>
+    <th scope="col">Name</th>
+    <th scope="col">Start Date</th>
+    <th scope="col">End Date</th>
+    <th scope="col">Leave Type</th>
+    <th scope="col">Status</th>
+    <th scope="col">Approve/Reject</th>
+  </tr>
+  </thead>
+  <% @leave_request.each do |leave_request| %>
+
+    <tr>
+      <td><%= leave_request.id %></td>
+      <td><%= leave_request.user.name %></td>
+      <td><%= leave_request.start_date %></td>
+      <td><%= leave_request.end_date %></td>
+      <td><%= leave_request.leave_type %></td>
+      <td><%= leave_request.status %></td>
+      <td><%= link_to "approve", edit_leave_request_path(leave_request) %></td>
+    </tr>
+      <% end %>
+</table>

@@ -22,7 +22,7 @@
 }
 
 .navbar-button {
-  background-color: #2ecc71;
+  background-color: brown;
   color: #ffffff;
   border: none;
   padding: 8px 12px;
@@ -34,9 +34,14 @@
 .navbar-button:hover {
   background-color: #27ae60;
 }
+h1 {
+  color: black;
+}
 
 
 </style>
+<section class="vh-100 bg-image"
+  style="background-image: url(<%= asset_path 'employee.jpg' %>); background-repeat: no-repeat; background-size: cover; background-position: center center">
 
 <nav class="navbar">
   <h1 class="navbar-title">Employee Login </h1>
@@ -51,3 +56,4 @@
   <%= button_to 'logout', logout_path, method: :post, class: 'navbar-button'  %>    
    </div>
 </nav>
+</section>

@@ -4,33 +4,55 @@ body {
 }
 </style>
 <%  if @current_user.type == 'Hr' %> 
-<marquee><h1 style="color: red;">Events</h1></marquee>
-<ul>
-  <li><%= link_to "Create", new_event_path(@event) %></li>
-</ul>
+<%= button_to "Home", hr_path, method: :get %>
+
+<%= link_to "Create", new_event_path(@event) %>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Number</th>
+    <th scope="col">Event Name</th>
+    <th scope="col">Date</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
   <% @event.each do |event| %>
-   <b>Number :</b> <%= event.id %><br>
-  <b>Event Name :</b> <%= event.name %><br>
-   <b>Date :</b> <%= event.date %><br>
-      <ul>
-  <li><%= link_to "Edit", edit_event_path(event) %></li>
-    <li><%= link_to "Destroy", event_path(event), data: {
+    <tr>
+      <td><%= event.id %></td>
+      <td><%= event.name %></td>
+      <td><%= event.date %></td>
+      <td><%= link_to "Edit", edit_holiday_path(event) %></td>
+      <td><%= link_to "Destroy", holiday_path(event), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-
-</ul>
- 
-
-     <hr>
-  
+                  } %></td>
+  </tr>
   <% end %>
       
+    </table>
       <% else %>
-      <% @event.each do |event| %>
-   <b>Number :</b> <%= event.id %><br>
-  <b>Event Name :</b> <%= event.name %><br>
-   <b>Date :</b> <%= event.date %><br><hr>
-       <% end %>
+        <%= button_to "Home", emp_path, method: :get %>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Number</th>
+    <th scope="col">Event Name</th>
+    <th scope="col">Date</th>
+  </tr>
+  </thead>
+  <% @event.each do |event| %>
+
+    <tr>
+      <td><%= event.id %></td>
+      <td><%= event.name %></td>
+      <td><%= event.date %></td>
+    </tr>
+      <% end %>
+</table>
+
+
 
       <% end %>

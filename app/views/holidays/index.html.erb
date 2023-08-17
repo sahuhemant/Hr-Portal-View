@@ -2,35 +2,63 @@
 body {
   background-color: lightblue;
 }
-
+button {
+  color: darkblue;
+  font-size: 16px;
+  cursor: pointer;
+}
 </style>
+
 <%  if @current_user.type == 'Hr' %> 
-<marquee><h1 style="color: red;">Holidays</h1></marquee>
-<ul>
-  <li><%= link_to "Create", new_holiday_path(@holiday) %></li>
-</ul>
+
+<%= button_to "Home", hr_path, method: :get %>
+ <%= link_to "Create", new_holiday_path(@holiday) %>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Number</th>
+    <th scope="col">Holiday Name</th>
+    <th scope="col">Date</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
   <% @holiday.each do |holiday| %>
-  <b>Number :</b> <%= holiday.id %><br>
-  <b>holiday Name :</b> <%= holiday.name %><br>
-   <b>Date :</b> <%= holiday.date %><br>
-  <ul>
-  <li><%= link_to "Edit", edit_holiday_path(holiday) %></li>
-  <li><%= link_to "Destroy", holiday_path(holiday), data: {
+    <tr>
+      <td><%= holiday.id %></td>
+      <td><%= holiday.name %></td>
+      <td><%= holiday.date %></td>
+      <td><%= link_to "Edit", edit_holiday_path(holiday) %></td>
+      <td><%= link_to "Destroy", holiday_path(holiday), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-
-</ul>
-     <hr>
+                  } %></td>
+                </tr>
+              
   
   <% end %>
+  </table>
       
       <% else %>
-      <% @holiday.each do |holiday| %>
-   <b>Number :</b> <%= holiday.id %><br>
-  <b>holiday Name :</b> <%= holiday.name %><br>
-   <b>Date :</b> <%= holiday.date %><br><hr>
-      <% end %>
+<%= button_to "Home", emp_path, method: :get %>
 
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Number</th>
+    <th scope="col">Holiday Name</th>
+    <th scope="col">Date</th>
+  </tr>
+  </thead>
+  <% @holiday.each do |holiday| %>
+
+    <tr>
+      <td><%= holiday.id %></td>
+      <td><%= holiday.name %></td>
+      <td><%= holiday.date %></td>
+    </tr>
+      <% end %>
+</table>
       <% end %>
 

@@ -1,7 +1,17 @@
-<h1>Apply Leave</h1>
+<style type="text/css">
+body {
+  background-color: khaki;
+}
+  .abc {
+    margin-left: 350px;
+  }
+</style>
+
+  <%= button_to "Home", emp_path, method: :get %>
 
 <%= form_with model: @leave_request, method: :post do |form| %>
-  <div>
+  <div class="abc">
+    <h1>Apply Leave</h1>
     <b><%= form.label :Start_Date %></b><br>
     <%= form.date_select :start_date %>
     <% @leave_request.errors.full_messages_for(:start_date).each do |message| %>
@@ -9,16 +19,23 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="abc">
     <b><%= form.label :end_Date %></b><br>
     <%= form.date_select :end_date %>
     <% @leave_request.errors.full_messages_for(:end_date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
+  <div class="abc">
+    <%= form.label :leave_type %><br>
+   <%= form.select :leave_type, ["CL", "PL", "SL"] %>
+    <% @leave_request.errors.full_messages_for(:leave_type).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
 
 
-  <div>
+  <div class="abc">
     <%= form.label :reason %><br>
     <%= form.text_field :reason %><br>
     <% @leave_request.errors.full_messages_for(:reason).each do |message| %>
@@ -26,7 +43,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="abc">
     <%= form.submit %>
   </div>
 <% end %>

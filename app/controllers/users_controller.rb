@@ -43,6 +43,6 @@ class UsersController < ApplicationController
   private
 
   def leave_params
-    params.require(:leave_request).permit(:start_date, :end_date, :reason, :@current_user.user_id)
+    params.require(:leave_request).permit(:start_date, :end_date, :reason,  :leave_type, :@current_user.user_id)
   end
 end
